@@ -1,0 +1,71 @@
+/* =========================
+   FOOTER BASE
+========================= */
+.footer {
+  background: linear-gradient(
+    135deg,
+    #020617 0%,
+    #020b2e 35%,
+    #04123f 65%,
+    #0b2c6f 100%
+  );
+  color: #e5e7eb;
+  padding: 60px 0 25px;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+/* =========================
+   TEXT STYLES
+========================= */
+.footer h3,
+.footer h4 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.footer p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #dbeafe;
+}
+
+.footer a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   TRANSLATE
+========================= */
+.translate {
+  text-align: center;
+  margin: 30px 0 15px;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+.copyright {
+  text-align: center;
+  font-size: 14px;
+  color: #c7d2fe;
+}
