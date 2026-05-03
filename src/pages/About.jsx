@@ -1,21 +1,12 @@
 import React, { useState } from 'react'
 
-// 👉 import your images here
 import img1 from '../assets/KNUlogo3.png'
-// add more images like this:
-// import img2 from '../assets/reg2.jpg'
 
 export default function About () {
-  //for Galary
   const [activeImage, setActiveImage] = useState(null)
   const [currentIndex, setCurrentIndex] = useState(0)
 
-  // 👉 dynamic gallery array
-  const galleryImages = [
-    img1
-    // img2,
-    // img3
-  ]
+  const galleryImages = [img1]
 
   const openImage = index => {
     setCurrentIndex(index)
@@ -40,7 +31,6 @@ export default function About () {
   return (
     <>
       <div className='about-page'>
-        {/* HERO */}
         <section className='hero'>
           <div className='overlay'>
             <h1>About Our Group</h1>
@@ -50,7 +40,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* MISSION + VISION */}
         <section className='section'>
           <div className='container grid-2'>
             <div className='glass'>
@@ -71,7 +60,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* CORE VALUES */}
         <section className='section dark'>
           <div className='container'>
             <h2>Core Values</h2>
@@ -85,7 +73,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* TIMELINE */}
         <section className='section'>
           <div className='container'>
             <h2>Our Journey</h2>
@@ -114,7 +101,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* SISTER CONCERNS */}
         <section className='section bg-soft'>
           <div className='container'>
             <h2>Our Brands</h2>
@@ -127,7 +113,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* TEAM */}
         <section className='section'>
           <div className='container'>
             <h2>Leadership Team</h2>
@@ -142,6 +127,7 @@ export default function About () {
                 <h3>Md Faysal Ahmed Bhuiyan</h3>
                 <h6>Director</h6>
               </div>
+
               <div className='team'>
                 <h3>Rifat Jaman Emon</h3>
                 <h6>Director</h6>
@@ -155,7 +141,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* CSR */}
         <section className='section dark'>
           <div className='container'>
             <h2>Social Impact</h2>
@@ -166,7 +151,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* AWARDS */}
         <section className='section'>
           <div className='container'>
             <h2>Awards & Recognition</h2>
@@ -179,7 +163,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* ===== GALLERY SECTION ===== */}
         <section className='section bg-soft'>
           <div className='container'>
             <h2>Company Gallery</h2>
@@ -200,7 +183,6 @@ export default function About () {
           </div>
         </section>
 
-        {/* ===== MODAL VIEW ===== */}
         {activeImage && (
           <div className='modal' onClick={() => setActiveImage(null)}>
             <span className='close'>✖</span>
@@ -218,7 +200,6 @@ export default function About () {
         )}
       </div>
 
-      {/* CSS */}
       <style>{`
         * {
           margin: 0;
@@ -228,7 +209,7 @@ export default function About () {
         }
 
         .hero {
-          height: 70vh;
+          height: 60vh;
           background: url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d") center/cover no-repeat;
           position: relative;
         }
@@ -243,6 +224,7 @@ export default function About () {
           align-items: center;
           color: white;
           text-align: center;
+          padding: 20px;
         }
 
         .overlay h1 {
@@ -250,7 +232,7 @@ export default function About () {
         }
 
         .section {
-          padding: 80px 20px;
+          padding: 60px 15px;
           text-align: center;
         }
 
@@ -280,7 +262,7 @@ export default function About () {
         .glass {
           background: rgba(255,255,255,0.15);
           backdrop-filter: blur(10px);
-          padding: 30px;
+          padding: 25px;
           border-radius: 15px;
         }
 
@@ -294,16 +276,9 @@ export default function About () {
         }
 
         .card, .brand, .team, .award {
-          padding: 25px;
+          padding: 20px;
           border: 1px solid #ddd;
           border-radius: 10px;
-          transition: 0.3s;
-        }
-
-        .card:hover, .brand:hover, .team:hover, .award:hover {
-          background: black;
-          color: white;
-          transform: translateY(-5px);
         }
 
         .timeline {
@@ -318,16 +293,11 @@ export default function About () {
           padding-left: 15px;
         }
 
-        .timeline-item span {
-          font-weight: bold;
-        }
-
         .center {
           max-width: 700px;
           margin: auto;
         }
 
-        /* ===== GALLERY ===== */
         .gallery {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
@@ -337,18 +307,13 @@ export default function About () {
 
         .gallery img {
           width: 100%;
-          height: 220px;
-          object-fit: contain ;
+          height: auto;
+          max-height: 220px;
+          object-fit: contain;
           border-radius: 10px;
           cursor: pointer;
-          transition: 0.3s;
         }
 
-        .gallery img:hover {
-          transform: scale(1.05);
-        }
-
-        /* ===== MODAL ===== */
         .modal {
           position: fixed;
           inset: 0;
@@ -361,8 +326,7 @@ export default function About () {
 
         .modal img {
           max-width: 90%;
-          max-height: 85%;
-          border-radius: 10px;
+          max-height: 80%;
         }
 
         .close {
@@ -371,16 +335,61 @@ export default function About () {
           right: 20px;
           color: white;
           font-size: 24px;
+        }
+
+        .nav {
+          position: absolute;
+          background: rgba(255,255,255,0.2);
+          color: white;
+          border: none;
+          font-size: 30px;
+          padding: 10px;
           cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-          .grid-2, .grid-3, .grid-4 {
+        .left { left: 10px; }
+        .right { right: 10px; }
+
+        /* 📱 MOBILE */
+        @media (max-width:768px) {
+          .grid-2,
+          .grid-3,
+          .grid-4 {
+            grid-template-columns: 1fr;
+          }
+
+          .gallery {
             grid-template-columns: 1fr;
           }
 
           .overlay h1 {
-            font-size: 28px;
+            font-size: 26px;
+          }
+        }
+
+        /* 📲 TABLET */
+        @media (min-width:769px) and (max-width:1024px) {
+          .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .grid-3 {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .grid-4 {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .gallery {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* 💻 LARGE */
+        @media (min-width:1400px) {
+          .container {
+            max-width:1200px;
           }
         }
       `}</style>

@@ -4,7 +4,6 @@ import logo from '../assets/logo.png'
 export default function Contact () {
   return (
     <div className='contact-page'>
-      {/* HERO */}
       <section className='hero'>
         <div className='overlay'>
           <h1>Contact Us</h1>
@@ -12,7 +11,6 @@ export default function Contact () {
         </div>
       </section>
 
-      {/* OFFICE INFO */}
       <section className='section'>
         <h2>Head Office</h2>
 
@@ -22,15 +20,12 @@ export default function Contact () {
           <div className='info'>
             <h3>MINA CONSOL LIMITED</h3>
             <p>Dhaka, Bangladesh</p>
-
             <p>📞 +880 1234 567890</p>
             <p>📧 faysalahmedtushan@gmail.com</p>
-
             <p className='hours'>Office Hours: Sat – Thu (9:00 AM – 6:00 PM)</p>
           </div>
         </div>
 
-        {/* MAP */}
         <div className='map'>
           <iframe
             src='https://maps.google.com/maps?q=dhaka&t=&z=13&ie=UTF8&iwloc=&output=embed'
@@ -39,7 +34,6 @@ export default function Contact () {
         </div>
       </section>
 
-      {/* DEPARTMENTS */}
       <section className='section bg'>
         <h2>Departments</h2>
 
@@ -48,17 +42,14 @@ export default function Contact () {
             <h3>Sales</h3>
             <p>sales@minaconsol.com</p>
           </div>
-
           <div className='card'>
             <h3>HR / Careers</h3>
             <p>hr@minaconsol.com</p>
           </div>
-
           <div className='card'>
             <h3>Media / PR</h3>
             <p>media@minaconsol.com</p>
           </div>
-
           <div className='card'>
             <h3>General Inquiry</h3>
             <p>faysalahmedtushan@gmail.com</p>
@@ -66,7 +57,6 @@ export default function Contact () {
         </div>
       </section>
 
-      {/* DIRECT CONTACT */}
       <section className='section'>
         <h2>Contact Directly</h2>
 
@@ -74,18 +64,15 @@ export default function Contact () {
           <a href='tel:+8801234567890' className='btn'>
             📞 Call Now
           </a>
-
           <a href='https://wa.me/8801234567890' className='btn'>
             💬 WhatsApp
           </a>
-
           <a href='mailto:faysalahmedtushan@gmail.com' className='btn'>
             📧 Send Email
           </a>
         </div>
       </section>
 
-      {/* SOCIAL */}
       <section className='section bg'>
         <h2>Follow Us</h2>
 
@@ -97,7 +84,6 @@ export default function Contact () {
         </div>
       </section>
 
-      {/* STYLE */}
       <style>{`
         * {
           margin: 0;
@@ -120,10 +106,12 @@ export default function Contact () {
           justify-content: center;
           align-items: center;
           color: white;
+          text-align: center;
+          padding: 15px;
         }
 
         .section {
-          padding: 70px 20px;
+          padding: 60px 15px;
           text-align: center;
         }
 
@@ -133,7 +121,7 @@ export default function Contact () {
 
         .office {
           display: flex;
-          gap: 30px;
+          gap: 25px;
           align-items: center;
           justify-content: center;
           flex-wrap: wrap;
@@ -141,12 +129,14 @@ export default function Contact () {
         }
 
         .office img {
-          width: 400px;
+          width: 100%;
+          max-width: 350px;
           border-radius: 10px;
         }
 
         .info {
           text-align: left;
+          max-width: 400px;
         }
 
         .hours {
@@ -156,7 +146,7 @@ export default function Contact () {
 
         .map iframe {
           width: 100%;
-          height: 300px;
+          height: 280px;
           border: none;
         }
 
@@ -175,24 +165,25 @@ export default function Contact () {
 
         .contact-box {
           display: flex;
-          
           justify-content: center;
-          gap: 20px;
+          gap: 15px;
           flex-wrap: wrap;
           margin-top: 20px;
         }
 
         .btn {
-          padding: 14px 25px;
+          padding: 12px 20px;
           background: black;
           color: white;
           text-decoration: none;
           border-radius: 6px;
-          transition: 0.3s;
+          display: inline-block;
         }
 
-        .btn:hover {
-          background: #333;
+        .social {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
         }
 
         .social a {
@@ -201,21 +192,36 @@ export default function Contact () {
           color: black;
         }
 
-        @media (max-width: 900px) {
-          .grid {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-
-        @media (max-width: 600px) {
+        /* 📱 MOBILE */
+        @media (max-width:600px) {
           .grid {
             grid-template-columns: 1fr;
           }
 
-          .office img {
+          .info {
+            text-align: center;
+          }
+
+          .btn {
             width: 100%;
+            max-width: 250px;
           }
         }
+
+        /* 📲 TABLET */
+        @media (min-width:601px) and (max-width:1024px) {
+          .grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* 💻 LARGE */
+        @media (min-width:1400px) {
+          .grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
       `}</style>
     </div>
   )

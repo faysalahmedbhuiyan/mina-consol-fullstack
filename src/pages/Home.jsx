@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Home () {
@@ -30,16 +30,24 @@ export default function Home () {
       text: 'Paisa hi Paisa Paisa hi Paisa.',
       type: 'Export Import'
     }
-    /*jotogulo add kora lagbe ekhane uporer moto kore formet e add korle seta add hoye jabe*/
   ]
 
   const next = () => {
-    setIndex((index + 1) % reviews.length)
+    setIndex(prev => (prev + 1) % reviews.length)
   }
 
   const prev = () => {
-    setIndex((index - 1 + reviews.length) % reviews.length)
+    setIndex(prev => (prev - 1 + reviews.length) % reviews.length)
   }
+
+  // ✅ AUTO SLIDE (10 sec)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex(prev => (prev + 1) % reviews.length)
+    }, 10000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <>
@@ -60,32 +68,24 @@ export default function Home () {
         <h2>Our Business</h2>
 
         <div className='grid'>
-          {/* ✅ ALL CORRECT LINKS */}
-
           <Link to='/student-consultancy' className='card'>
             Student Consultancy
           </Link>
-
           <Link to='/ITFarm' className='card'>
             IT & Software
           </Link>
-
           <Link to='/export-import' className='card'>
             Trading & Export
           </Link>
-
           <Link to='/courses' className='card'>
             Korean Courses
           </Link>
-
           <Link to='/group-of-companies' className='card'>
             Group of Companies
           </Link>
-
           <Link to='/why-choose-us' className='card'>
             Why Choose Us
           </Link>
-
           <Link to='/contact' className='card'>
             Contact
           </Link>
@@ -109,33 +109,36 @@ export default function Home () {
         </p>
       </section>
 
-      <section className='Brand'>
+      {/* BRAND */}
+      <section>
         <h2>OUR BRAND</h2>
-        <br />
         <h3>OUR BUSINESS PROTFOLIO</h3>
-        <div className='logo-Card'>
-          <img src='src\assets\logo.png' />
-          <p>Korean Courses</p>
-        </div>
-        <div className='logo-Card'>
-          <img src='ITFarm-logo' />
-          <p>IT Farm</p>
-        </div>
-        <div className='logo-Card'>
-          <img src='StudentConsultancy-logo' />
-          <p>Student Consultancy</p>
-        </div>
-        <div className='logo-Card'>
-          <img src='HealthCare-logo' />
-          <p>Health Care</p>
-        </div>
-        <div className='logo-Card'>
-          <img src='Export_import_logo' />
-          <p>OUR'S Export-Import</p>
+
+        <div className='Brand'>
+          <div className='logo-Card'>
+            <img src='src/assets/logo.png' alt='' />
+            <p>Korean Courses</p>
+          </div>
+          <div className='logo-Card'>
+            <img src='ITFarm-logo' alt='' />
+            <p>IT Farm</p>
+          </div>
+          <div className='logo-Card'>
+            <img src='StudentConsultancy-logo' alt='' />
+            <p>Student Consultancy</p>
+          </div>
+          <div className='logo-Card'>
+            <img src='HealthCare-logo' alt='' />
+            <p>Health Care</p>
+          </div>
+          <div className='logo-Card'>
+            <img src='Export_import_logo' alt='' />
+            <p>OUR'S Export-Import</p>
+          </div>
         </div>
       </section>
 
-      {/* ✅ CLIENTS SECTION (FIXED) */}
+      {/* CLIENTS */}
       <section className='clients'>
         <h2>What Clients Say</h2>
 
@@ -177,6 +180,8 @@ export default function Home () {
           justify-content: center;
           align-items: center;
           color: white;
+          text-align: center;
+          padding: 20px;
         }
 
         .overlay h1 {
@@ -184,28 +189,28 @@ export default function Home () {
         }
 
         section {
-          padding: 80px 20px;
+          padding: 60px 15px;
           text-align: center;
           background: #f0eeee;
         }
 
         h2 {
-          margin-bottom: 40px;
+          margin-bottom: 30px;
         }
 
+        /* GRID SYSTEM */
         .grid {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 20px;
         }
 
         .card {
-          padding: 30px;
+          padding: 20px;
           border: 1px solid #ddd;
           text-decoration: none;
           color: black;
           transition: 0.3s;
-          cursor: pointer;
         }
 
         .card:hover {
@@ -222,7 +227,7 @@ export default function Home () {
         .slider { max-width:600px; margin:auto; }
 
         .review-card {
-          padding:30px;
+          padding:20px;
           border:1px solid #ddd;
           border-radius:12px;
           background:#f9f9f9;
@@ -237,37 +242,74 @@ export default function Home () {
           cursor:pointer;
         }
 
-        
         .Brand {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(5, 1fr);
           gap: 20px;
+          margin-top: 30px;
         }
+
         .logo-Card{
-          padding: 30px;
+          padding: 20px;
           border: 1px solid #ddd;
           border-radius: 20px;
-          text-decoration: none;
-          color: black;
-          
-          cursor: pointer;
-          transition: all 0.3s ease; /* Animation-ke smooth korbe */
           box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-      .logo-Card:hover {
-          padding: 20px;
-          
+        .logo-Card img{
+          width:100%;
+          max-width:120px;
+          height:auto;
         }
+
+        /* 📱 MOBILE */
         @media (max-width: 768px) {
           .grid {
             grid-template-columns: 1fr;
           }
 
+          .Brand {
+            grid-template-columns: 1fr;
+          }
+
           .overlay h1 {
-            font-size: 30px;
+            font-size: 28px;
           }
         }
+
+        /* 📲 TABLET */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+
+          .Brand {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* 💻 SMALL DESKTOP */
+        @media (min-width: 1025px) and (max-width: 1399px) {
+          .grid {
+            grid-template-columns: repeat(3, 1fr);
+          }
+
+          .Brand {
+            grid-template-columns: repeat(3, 1fr);
+          }
+        }
+
+        /* 🖥️ LARGE DESKTOP */
+        @media (min-width: 1400px) {
+          .grid {
+            grid-template-columns: repeat(5, 1fr);
+          }
+
+          .Brand {
+            grid-template-columns: repeat(5, 1fr);
+          }
+        }
+
       `}</style>
     </>
   )

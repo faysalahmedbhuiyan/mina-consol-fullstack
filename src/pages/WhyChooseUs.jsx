@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 export default function WhyChooseUs () {
   return (
     <div className='why-page'>
-      {/* HERO */}
       <section className='hero'>
         <div className='overlay'>
           <h1>
@@ -14,7 +13,6 @@ export default function WhyChooseUs () {
         </div>
       </section>
 
-      {/* MAIN FEATURES */}
       <section className='section'>
         <h2>Our Strength</h2>
 
@@ -91,7 +89,6 @@ export default function WhyChooseUs () {
         </div>
       </section>
 
-      {/* PROCESS */}
       <section className='section process-section'>
         <h2>How We Work</h2>
 
@@ -122,7 +119,6 @@ export default function WhyChooseUs () {
         </div>
       </section>
 
-      {/* CTA */}
       <section className='cta'>
         <h2>Start Your Journey With Us</h2>
         <p>Partner with a reliable and growing business group.</p>
@@ -131,7 +127,6 @@ export default function WhyChooseUs () {
         </Link>
       </section>
 
-      {/* STYLE */}
       <style>{`
         * {
           margin: 0;
@@ -156,6 +151,7 @@ export default function WhyChooseUs () {
           align-items: center;
           color: white;
           text-align: center;
+          padding: 20px;
         }
 
         .overlay h1 {
@@ -163,13 +159,13 @@ export default function WhyChooseUs () {
         }
 
         .section {
-          padding: 80px 20px;
+          padding: 60px 15px;
           text-align: center;
           background: #f8f8f8;
         }
 
         .section h2 {
-          margin-bottom: 40px;
+          margin-bottom: 30px;
         }
 
         .grid {
@@ -180,22 +176,13 @@ export default function WhyChooseUs () {
 
         .card {
           background: white;
-          padding: 25px;
+          padding: 20px;
           border-radius: 10px;
           box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-          transition: 0.3s;
-        }
-
-        .card:hover {
-          transform: translateY(-5px);
         }
 
         .card span {
-          font-size: 30px;
-        }
-
-        .card h3 {
-          margin: 10px 0;
+          font-size: 28px;
         }
 
         .process-section {
@@ -205,7 +192,7 @@ export default function WhyChooseUs () {
         .process {
           display: flex;
           justify-content: center;
-          gap: 40px;
+          gap: 30px;
           flex-wrap: wrap;
         }
 
@@ -227,7 +214,7 @@ export default function WhyChooseUs () {
         }
 
         .cta {
-          padding: 80px 20px;
+          padding: 60px 15px;
           text-align: center;
           background: #111;
           color: white;
@@ -243,21 +230,31 @@ export default function WhyChooseUs () {
           border-radius: 5px;
         }
 
-        @media (max-width: 900px) {
-          .grid {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-
-        @media (max-width: 600px) {
+        /* 📱 MOBILE */
+        @media (max-width:600px) {
           .grid {
             grid-template-columns: 1fr;
           }
 
           .overlay h1 {
-            font-size: 28px;
+            font-size: 26px;
           }
         }
+
+        /* 📲 TABLET */
+        @media (min-width:601px) and (max-width:1024px) {
+          .grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+
+        /* 💻 LARGE */
+        @media (min-width:1400px) {
+          .grid {
+            grid-template-columns: repeat(4, 1fr);
+          }
+        }
+
       `}</style>
     </div>
   )

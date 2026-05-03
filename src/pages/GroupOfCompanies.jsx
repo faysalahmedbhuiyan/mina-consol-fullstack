@@ -84,7 +84,6 @@ export default function GroupOfCompanies () {
         </section>
 
         {/* DIVISION 4 */}
-
         <section className='section line'>
           <div className='container row'>
             <div>
@@ -113,7 +112,6 @@ export default function GroupOfCompanies () {
         </section>
       </div>
 
-      {/* CSS (Same as before, only slight tweaks for consistency) */}
       <style>{`
         * {
           margin:0;
@@ -123,15 +121,16 @@ export default function GroupOfCompanies () {
         }
 
         .hero {
-          padding:100px 20px;
+          padding:80px 15px;
           background:#ffffff;
           text-align:center;
           border-bottom:1px solid #ddd;
         }
 
         .container {
-          max-width:1000px;
+          max-width:1100px;
           margin:auto;
+          padding:0 10px;
         }
 
         h1 {
@@ -168,7 +167,7 @@ export default function GroupOfCompanies () {
         }
 
         .section {
-          padding:80px 20px;
+          padding:60px 15px;
           border-bottom:1px solid #eee;
         }
 
@@ -179,6 +178,7 @@ export default function GroupOfCompanies () {
         .row {
           display:flex;
           justify-content:space-between;
+          gap:20px;
         }
 
         a {
@@ -201,6 +201,8 @@ export default function GroupOfCompanies () {
           border: 1px solid #d9534f;
           padding: 4px 8px;
           border-radius: 4px;
+          display:inline-block;
+          margin-top:10px;
         }
 
         .dark {
@@ -218,15 +220,43 @@ export default function GroupOfCompanies () {
           text-align: center;
         }
 
+        /* 📱 MOBILE */
         @media (max-width:768px) {
           .row {
             flex-direction:column;
           }
 
           h1 {
-            font-size:32px;
+            font-size:28px;
+          }
+
+          h2 {
+            font-size:24px;
+          }
+
+          h3 {
+            font-size:20px;
           }
         }
+
+        /* 📲 TABLET */
+        @media (min-width:769px) and (max-width:1024px) {
+          h1 {
+            font-size:36px;
+          }
+
+          .container {
+            max-width:90%;
+          }
+        }
+
+        /* 💻 LARGE SCREEN */
+        @media (min-width:1400px) {
+          .container {
+            max-width:1200px;
+          }
+        }
+
       `}</style>
     </>
   )

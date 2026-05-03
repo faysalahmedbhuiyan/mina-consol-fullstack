@@ -69,7 +69,6 @@ export default function ITFarm () {
 
   return (
     <div className='page'>
-      {/* HERO */}
       <section className='hero'>
         <div className='overlay'>
           <h1>We Build Digital Products That Scale</h1>
@@ -84,7 +83,6 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* IDENTITY */}
       <section className='section'>
         <h2>Why Choose Us</h2>
         <div className='grid'>
@@ -96,7 +94,6 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* SERVICES */}
       <section className='section dark'>
         <h2>Our Services</h2>
         <div className='grid'>
@@ -120,7 +117,6 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* PORTFOLIO */}
       <section className='section'>
         <h2>Our Work</h2>
         <div className='grid'>
@@ -135,7 +131,6 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* TECH STACK */}
       <section className='section dark'>
         <h2>Tech Stack</h2>
         <div className='tech'>
@@ -147,7 +142,6 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* TEAM */}
       <section className='section'>
         <h2>Meet the Team</h2>
         <div className='grid'>
@@ -165,7 +159,6 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* PROCESS */}
       <section className='section dark'>
         <h2>Work Process</h2>
         <div className='process'>
@@ -178,34 +171,20 @@ export default function ITFarm () {
         </div>
       </section>
 
-      {/* MODAL */}
       {preview && (
         <div className='modal' onClick={() => setPreview(null)}>
           <img src={preview} alt='' />
         </div>
       )}
 
-      {/* STYLE */}
       <style>{`
         body{
           margin:0;
           font-family:sans-serif;
         }
 
-        /* ✅ GOOGLE TRANSLATE FIX (SCOPED SAFE) */
-        .translate * {
-          all: unset !important;
-          font-size: 18px !important;
-        }
-
-        .translate select {
-          padding: 4px !important;
-          font-size: 12px !important;
-        }
-
-        /* HERO */
         .hero{
-          height:100vh;
+          height:90vh;
           background:url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover;
         }
 
@@ -218,14 +197,21 @@ export default function ITFarm () {
           align-items:center;
           color:#fff;
           text-align:center;
+          padding:20px;
         }
 
-        h1{font-size:50px;margin-bottom:15px}
-        h2{text-align:center;margin-bottom:40px}
+        h1{font-size:48px;margin-bottom:15px}
+        h2{text-align:center;margin-bottom:30px}
+
+        .buttons{
+          display:flex;
+          flex-wrap:wrap;
+          justify-content:center;
+        }
 
         .buttons button{
           margin:10px;
-          padding:12px 20px;
+          padding:12px 18px;
           border:none;
           background:#00ff88;
           cursor:pointer;
@@ -237,12 +223,12 @@ export default function ITFarm () {
           color:#fff;
         }
 
-        .section{padding:80px 20px}
+        .section{padding:60px 15px}
         .dark{background:#111;color:#fff}
 
         .grid{
           display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+          grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
           gap:20px;
         }
 
@@ -260,15 +246,15 @@ export default function ITFarm () {
 
         img{
           width:100%;
-          height:150px;
+          height:140px;
           object-fit:contain;
           border-radius:6px;
           cursor:pointer;
         }
 
         .avatar{
-          width:100px;
-          height:100px;
+          width:90px;
+          height:90px;
           border-radius:50%;
           object-fit:cover;
           margin:auto;
@@ -276,7 +262,7 @@ export default function ITFarm () {
 
         .details{
           margin-top:10px;
-          background: #18095f;
+          background:#18095f;
           padding:10px;
           border-radius:8px;
         }
@@ -290,20 +276,20 @@ export default function ITFarm () {
 
         .tech span{
           background:#00ff88;
-          padding:10px 15px;
+          padding:8px 14px;
           border-radius:20px;
         }
 
         .process{
           display:flex;
           justify-content:center;
-          gap:30px;
+          gap:25px;
           flex-wrap:wrap;
         }
 
         .process span{
           display:block;
-          font-size:30px;
+          font-size:26px;
         }
 
         .modal{
@@ -320,6 +306,17 @@ export default function ITFarm () {
           max-width:90%;
           max-height:90%;
         }
+
+        /* 📱 MOBILE */
+        @media (max-width:600px){
+          h1{font-size:26px}
+        }
+
+        /* 📲 TABLET */
+        @media (min-width:601px) and (max-width:1024px){
+          h1{font-size:36px}
+        }
+
       `}</style>
     </div>
   )
