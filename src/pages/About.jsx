@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
 import img1 from '../assets/KNUlogo3.png'
+import MINA from '../assets/MINA.jpg'
+import Faysal from '../assets/Faysal.jpg'
+import Emon from '../assets/Emon.png'
+import Fasal from '../assets/Fasal.jpg'
 
 export default function About () {
   const [activeImage, setActiveImage] = useState(null)
@@ -114,30 +118,28 @@ export default function About () {
         </section>
 
         <section className='section'>
-          <div className='container'>
-            <h2>Leadership Team</h2>
-
-            <div className='grid-3'>
-              <div className='team'>
-                <h3>Fahmina Tasnim Khan Arpita</h3>
-                <h6>Chairman</h6>
-              </div>
-
-              <div className='team'>
-                <h3>Md Faysal Ahmed Bhuiyan</h3>
-                <h6>Director</h6>
-              </div>
-
-              <div className='team'>
-                <h3>Rifat Jaman Emon</h3>
-                <h6>Director</h6>
-              </div>
-
-              <div className='team'>
-                <h3>Fasol Bhai</h3>
-                <h6>Director</h6>
-              </div>
-            </div>
+          <div className='team'>
+            <img src={MINA} alt='' className='team-img' />
+            <h3>Fahmina Tasnim Khan Arpita</h3>
+            <h6>Chairman</h6>
+          </div>
+          <br />
+          <div className='team'>
+            <img src={Faysal} alt='' className='team-img' />
+            <h3>Md Faysal Ahmed Bhuiyan</h3>
+            <h6>Director</h6>
+          </div>
+          <br />
+          <div className='team'>
+            <img src={Emon} alt='' className='team-img' />
+            <h3>Rifat Jaman Emon</h3>
+            <h6>Director</h6>
+          </div>
+          <br />
+          <div className='team'>
+            <img src={Fasal} alt='' className='team-img' />
+            <h3>Fasol Bhai</h3>
+            <h6>Director</h6>
           </div>
         </section>
 
@@ -232,9 +234,16 @@ export default function About () {
         }
 
         .section {
-          padding: 60px 15px;
-          text-align: center;
-        }
+  padding: 60px 15px;
+  text-align: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f7f7f7,
+      #ececec
+    );
+}
 
         .container {
           max-width: 1100px;
@@ -277,7 +286,7 @@ export default function About () {
 
         .card, .brand, .team, .award {
           padding: 20px;
-          border: 1px solid #ddd;
+          border: 1px solid #4e3c3c;
           border-radius: 10px;
         }
 
@@ -336,6 +345,82 @@ export default function About () {
           color: white;
           font-size: 24px;
         }
+          .team {
+  padding: 35px 25px;
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.18),
+    inset 0 1px 1px rgba(255,255,255,0.25);
+
+  text-align: center;
+
+  transition: all 0.35s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass light effect */
+.team::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 220px;
+  height: 220px;
+  background: rgba(255,255,255,0.18);
+  transform: rotate(25deg);
+  pointer-events: none;
+}
+
+/* Hover floating effect */
+.team:hover {
+  transform: translateY(-12px) scale(1.02);
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.28),
+    inset 0 1px 1px rgba(255,255,255,0.3);
+}
+
+.team-img {
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  margin-bottom: 18px;
+
+  border: 4px solid rgba(255,255,255,0.5);
+
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+
+  transition: 0.3s;
+}
+
+.team:hover .team-img {
+  transform: scale(1.05);
+}
+
+.team h3 {
+  margin-top: 10px;
+  font-size: 22px;
+  color: #111;
+}
+
+.team h6 {
+  margin-top: 8px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #444;
+}
 
         .nav {
           position: absolute;

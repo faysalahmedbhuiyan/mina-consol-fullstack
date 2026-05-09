@@ -249,18 +249,54 @@ export default function Home () {
           margin-top: 30px;
         }
 
-        .logo-Card{
-          padding: 20px;
-          border: 1px solid #ddd;
-          border-radius: 20px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+        /* ================= BRAND CARD ANIMATION ================= */
 
-        .logo-Card img{
-          width:100%;
-          max-width:120px;
-          height:auto;
-        }
+.logo-Card{
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* NEW */
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: brandSlideLeft 0.8s ease forwards;
+}
+
+/* one by one animation */
+.logo-Card:nth-child(1){
+  animation-delay: 0.2s;
+}
+
+.logo-Card:nth-child(2){
+  animation-delay: 0.4s;
+}
+
+.logo-Card:nth-child(3){
+  animation-delay: 0.6s;
+}
+
+.logo-Card:nth-child(4){
+  animation-delay: 0.8s;
+}
+
+.logo-Card:nth-child(5){
+  animation-delay: 1s;
+}
+
+.logo-Card img{
+  width:100%;
+  max-width:120px;
+  height:auto;
+}
+
+/* animation */
+@keyframes brandSlideLeft{
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
         /* 📱 MOBILE */
         @media (max-width: 768px) {
