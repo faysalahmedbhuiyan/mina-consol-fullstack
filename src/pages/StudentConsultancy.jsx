@@ -344,219 +344,324 @@ export default function StudentConsultancy () {
 
       {/* STYLE */}
       <style>{`
-        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI'}
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI'}
 
-        .hero{
-          height:90vh;
-          background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover no-repeat;
-          position:relative;
-        }
+  .hero{
+    height:90vh;
+    background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1') center/cover no-repeat;
+    position:relative;
+  }
 
-        .overlay{
-          position:absolute;
-          inset:0;
-          background:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
-          display:flex;
-          flex-direction:column;
-          justify-content:center;
-          align-items:center;
-          color:white;
-        }
+  .overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.4));
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+  }
 
-        .overlay h1{font-size:52px}
+  .overlay h1{font-size:52px}
 
-        .section{padding:80px 20px}
-        .center{text-align:center}
-        .bg-soft{background:#f5f7fa}
+  .section{padding:80px 20px}
+  .center{text-align:center}
+  .bg-soft{background:#f5f7fa}
 
-        .intro{max-width:700px;margin:auto;margin-top:15px;color:#555}
+  .intro{max-width:700px;margin:auto;margin-top:15px;color:#555}
 
-        .process-grid{
-          display:grid;
-          grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-          gap:20px;
-          margin-top:40px;
-        }
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:40px;
+  }
 
-        .card{
-          background:white;
-          padding:25px;
-          border-radius:12px;
-          box-shadow:0 6px 15px rgba(0,0,0,0.1);
-          transition:.3s;
-        }
+  .card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.1);
 
-        .card:hover{transform:translateY(-6px)}
+  /* OLD */
+  /* transition:.3s; */
 
-        .course-grid{
-          display:flex;
-          justify-content:center;
-          gap:15px;
-          flex-wrap:wrap;
-          margin-top:30px;
-        }
-
-        .course-card{
-          padding:12px 20px;
-          background:black;
-          color:white;
-          border-radius:20px;
-          cursor:pointer;
-        }
-
-        .course-details li{margin:8px 0}
-        .service-card{
-          background:white;
-          margin:15px auto;
-          padding:20px;
-          max-width:500px;
-          border-radius:10px;
-          transform:translateX(-100px);
-          opacity:0;
-          transition:0.5s;
-        }
-
-        .service-card.show{
-          transform:translateX(0);
-          opacity:1;
-        }
-          
-        .service-card{
-          background:white;
-          margin:15px auto;
-          padding:20px;
-          max-width:500px;
-          border-radius:10px;
-          transform:translateX(-100px);
-          opacity:0;
-          transition:0.5s;
-        }
-
-        .service-card.show{
-          transform:translateX(0);
-          opacity:1;
-        }
-        .service-details {
-  max-width: 500px;
-  margin: 10px auto 20px;
-  background: #fff;
-  padding: 15px;
-  border-left: 4px solid #007bff;
-  border-radius: 8px;
-  animation: fadeIn 0.3s ease;
+  /* NEW */
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: slideLeft 0.8s ease forwards;
 }
 
-.service-details p {
-  font-size: 14px;
-  color: #444;
-  line-height: 1.6;
+/* hover same থাকবে */
+.card:hover{
+  transform: translateY(-6px);
 }
-        .countries{
-          display:flex;
-          justify-content:center;
-          flex-wrap:wrap;
-          gap:15px;
-          margin-top:30px;
-        }
 
-        .countries div{
-          background:#eee;
-          padding:10px 20px;
-          border-radius:20px;
-        }
+/* one by one animation delay */
+.process-grid .card:nth-child(1){
+  animation-delay: 0.1s;
+}
 
-        .consult{
-          padding:80px 20px;
-          text-align:center;
-          background:#111;
-          color:white;
-        }
+.process-grid .card:nth-child(2){
+  animation-delay: 0.5s;
+}
 
-        .contact-box a{
-          background:#222;
-          padding:12px;
-          display:block;
-          margin:10px 0;
-          border-radius:8px;
-          color:white;
-          text-decoration:none;
-        }
+.process-grid .card:nth-child(3){
+  animation-delay: 1s;
+}
 
-        .review-grid{
-          display:grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap:20px;
-        }
+.process-grid .card:nth-child(4){
+  animation-delay: 3s;
+}
 
-        .review-card{
-          background:white;
-          padding:20px;
-          border-radius:12px;
-        }
+.process-grid .card:nth-child(5){
+  animation-delay: 4s;
+}
 
-        .mou-grid{
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          margin-top: 40px;
-        }
+.process-grid .card:nth-child(6){
+  animation-delay: 5s;
+}
 
-          .mou-card {
-            text-align: center;
-            cursor: pointer;
-            padding: 15px;
-            background: white;
-            border-radius: 12px;
-            transition: 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-          }
+.process-grid .card:nth-child(7){
+  animation-delay: 6s;
+}
 
-          .mou-card:hover {
-            transform: translateY(-5px);
-          }
+/* animation */
+@keyframes slideLeft{
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
-          .mou-card img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-          }
 
-          /* EXPAND AREA */
-          .mou-details {
-            margin-top: 15px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            background: #f5f5f5;
-            padding: 15px;
-            border-radius: 10px;
-            animation: fadeIn 0.3s ease;
-          }
+  .course-grid{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+  }
 
-          .mou-details img {
-            width: 300px;
-            height: 300px;
-            object-fit: fit;
-            border-radius: 6px;
-          }
+  .course-card{
+    padding:12px 20px;
+    background:black;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+  }
 
-        .img-modal{
-          position:fixed;
-          inset:0;
-          background:rgba(0,0,0,0.9);
-          display:flex;
-          justify-content:center;
-          align-items:center;
-          z-index:9999;
-          cursor:pointer;
-        }
+  .course-details li{margin:8px 0}
 
-        .img-modal img{
-          max-width:100%;
-          max-height:100%;
-          border-radius:10px;
-        }
-      `}</style>
+  .service-card{
+    background:white;
+    margin:15px auto;
+    padding:20px;
+    max-width:500px;
+    border-radius:10px;
+    transform:translateX(-100px);
+    opacity:0;
+    transition:0.5s;
+  }
+
+  .service-card.show{
+    transform:translateX(0);
+    opacity:1;
+  }
+
+  .service-details {
+    max-width: 500px;
+    margin: 10px auto 20px;
+    background: #fff;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .service-details p {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .countries{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:30px;
+  }
+
+  .countries div{
+    background:#eee;
+    padding:10px 20px;
+    border-radius:20px;
+  }
+
+  .consult{
+    padding:80px 20px;
+    text-align:center;
+    background:#111;
+    color:white;
+  }
+
+  .contact-box a{
+    background:#222;
+    padding:12px;
+    display:block;
+    margin:10px 0;
+    border-radius:8px;
+    color:white;
+    text-decoration:none;
+  }
+
+  .review-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:20px;
+  }
+
+  .review-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+  }
+
+  .mou-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .mou-card {
+    text-align: center;
+    cursor: pointer;
+    padding: 15px;
+    background: white;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .mou-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .mou-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .mou-details {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 10px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .mou-details img {
+    width: 300px;
+    height: 300px;
+    object-fit: fit;
+    border-radius: 6px;
+  }
+
+  .img-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    cursor:pointer;
+  }
+
+  .img-modal img{
+    max-width:100%;
+    max-height:100%;
+    border-radius:10px;
+  }
+
+  /* =========================
+     ✅ ONLY RESPONSIVE ADDED
+     ========================= */
+
+  /* Tablet */
+  @media (max-width: 992px){
+    .review-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mou-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 600px){
+
+    .overlay h1{
+      font-size:28px;
+      text-align:center;
+    }
+
+    .overlay p{
+      font-size:14px;
+      text-align:center;
+      padding:0 10px;
+    }
+
+    .section{
+      padding:50px 15px;
+    }
+
+    .process-grid{
+      grid-template-columns: 1fr;
+    }
+
+    .review-grid{
+      grid-template-columns: 1fr;
+    }
+
+    .mou-grid{
+      grid-template-columns: 1fr;
+    }
+
+    .course-grid{
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .course-card{
+      width:90%;
+      text-align:center;
+    }
+
+    .service-card{
+      width:90%;
+    }
+
+    .countries{
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .mou-details img{
+      width:100%;
+      height:auto;
+    }
+  }
+
+`}</style>
     </div>
   )
 }

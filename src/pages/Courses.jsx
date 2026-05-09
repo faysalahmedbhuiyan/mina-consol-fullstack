@@ -229,222 +229,258 @@ export default function CoursesAdvanced () {
 
       {/* ================= CSS ================= */}
       <style>{`
-      .{
-      background: #F5F5F5
-      }
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-          padding-left: 40px;  /* আপনার প্রয়োজন অনুযায়ী সংখ্যা (px) বাড়াতে বা কমাতে পারেন */
-           padding-right: 20px;
-        }
 
-        .card {
-          background: #a7e5fb;
-          backdrop-filter: blur(10px);
-          border-radius: 12px ;
-          overflow: hidden;
-          height: 260px;
-          cursor: pointer;
-          transition: all 0.4s ease;
-          position: relative;
-          boder: 1px solid rgba(255,255,255,0.3)
-        }
-        .card:hover {
-          transform: translateY(-10px); /* কার্ডটি ১০ পিক্সেল উপরে উঠে আসবে */
-          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* শ্যাডো আরও গাঢ় হবে */
-          border: 1px solid #3498db; /* হালকা বর্ডার যোগ হবে (ঐচ্ছিক) */
-        }
-        
-        /* ================= CONTENT TEXT IMPROVED ================= */
+/* ================= BASE ================= */
+body{
+  background: #eef3f8;
+}
 
-          .content {
-            padding: 14px 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-          }
+/* ================= SECTION TITLE BOX ================= */
+/* ================= SECTION TITLE BOX (FIXED) ================= */
+.section h2 {
+  display: block;              /* fix */
+  width: fit-content;          /* box width auto */
+  margin: 30px auto 20px;      /* center horizontally */
+  text-align: center;
 
-          /* each field block */
-          .field {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-          }
+  background: linear-gradient(135deg, #9eb1c5, #ded51c);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 30px;
 
-          /* last field no border */
-          .field:last-child {
-            border-bottom: none;
-          }
+  font-size: 20px;
+  font-weight: 600;
 
-          /* label (title) */
-          .label {
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            color: #0077b6; /* primary accent */
-            text-transform: uppercase;
-            opacity: 0.8;
-          }
+  box-shadow: 0 6px 15px rgba(197, 115, 115, 0.2);
+}
 
-          /* main value text */
-          .value {
-            font-size: 14px;
-            font-weight: 500;
-            color: #1a1a1a;
-            line-height: 1.5;
-            word-break: break-word;
-          }
 
-          /* details (long text) */
-          .card.expanded .value {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #333;
-          }
 
-          /* better spacing when expanded */
-          .card.expanded .content {
-            padding: 18px 20px;
-          }
+/* direct styling */
+.section h2 {
+  background: linear-gradient(135deg, #4da3ff, #0077ff);
+  color: white;
+  align-items: center;
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
 
-          /* subtle hover effect */
-          .card:hover .value {
-            color: #000;
-          }
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px 40px;
+}
 
-          /* mobile optimization */
-          @media (max-width: 768px) {
-            .value {
-              font-size: 13px;
-            }
+/* ================= CARD ================= */
+.card {
+  background: linear-gradient(135deg, #ffffff, #f1f6fb);
+  border-radius: 16px;
+  overflow: hidden;
+  height: 260px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
 
-            .card.expanded .value {
-              font-size: 14px;
-            }
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  border: 1px solid #4da3ff;
+}
 
-            .label {
-              font-size: 10px;
-            }
-          }
+/* ================= CONTENT ================= */
+.content {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-        .card.expanded {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 90%;
-          max-width: 900px;
-          height: 80vh;
-          z-index: 1000;
-          box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-          background: #F0F4F8;
-        }
+/* ================= FIELD ================= */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
 
-        .close {
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          z-index: 10;
-          cursor: pointer;
-          background: black;
-          color: white;
-          padding: 8px;
-          border-radius: 50%;
-        }
+.field:last-child {
+  border-bottom: none;
+}
 
-        .media {
-          height: 50%;
-          position: relative;
-        }
+/* ================= COURSE NAME BOX ================= */
+.field:first-child {
+  align-items: center;
+  text-align: center;
+}
 
-        .media img,
-        .media video {
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          cursor: zoom-in;
-        }
+.field:first-child .label {
+  display: none;
+}
 
-        .nav {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background: rgba(0,0,0,0.5);
-          color: white;
-          border: none;
-          padding: 10px;
-          cursor: pointer;
-        }
+.field:first-child .value {
+  background: linear-gradient(135deg, #4da3ff, #0077ff);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 15px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
 
-        .left { left: 10px; }
-        .right { right: 10px; }
+/* ================= TEXT ================= */
+.label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #4da3ff;
+  text-transform: uppercase;
+}
 
-        .content {
-          padding: 12px;
-        }
+.value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  line-height: 1.5;
+  word-break: break-word;
+}
 
-        .label {
-          font-size: 11px;
-          color: #328CC1;
-          font-weight: bold;
-        }
+/* ================= EXPANDED ================= */
+.card.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92%;
+  max-width: 900px;
+  height: 85vh;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  border-radius: 20px;
+}
 
-        .value {
-          font-size: 13px;
-        }
+/* ================= CLOSE ================= */
+.close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
+  background: #111;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 50%;
+}
 
-        /* 🔥 FULLSCREEN MEDIA */
-        .media-modal {
-          position: fixed;
-          inset: 0;
-          background: rgba(0,0,0,0.9);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 2000;
-          backdrop-filter: blur(20px);
-          animation: fadeIn 0.3s ease;
-        }
+.close:hover{
+  background:#ff4d4d;
+}
 
-        .media-modal img,
-        .media-modal video {
-          max-width: 95%;
-          max-height: 90%;
-          border-radius: 10px;
-        }
+/* ================= MEDIA ================= */
+.media {
+  height: 50%;
+  background: #000;
+}
 
-        .media-close {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          color: white;
-          font-size: 24px;
-          cursor: pointer;
-          background: rgba(0,0,0,0.6);
-          padding: 10px;
-          border-radius: 50%;
-        }
+.media img,
+.media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
-        @keyframes fadeIn {
-          from { opacity: 0 }
-          to { opacity: 1 }
-        }
+/* ================= NAV ================= */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
-        @media (max-width: 768px) {
-          .grid {
-            grid-template-columns: 1fr;
-          }
+.nav:hover{
+  background:#4da3ff;
+}
 
-          .card.expanded {
-            width: 95%;
-            height: 90vh;
-          }
-        }
-      `}</style>
+.left { left: 10px; }
+.right { right: 10px; }
+
+/* ================= HEADER ================= */
+.header{
+  padding: 20px 40px;
+}
+
+.header h1{
+  font-size: 32px;
+}
+
+/* ================= FILTER ================= */
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.filters button{
+  padding: 8px 14px;
+  border-radius: 20px;
+  border:none;
+  background:#e6edf5;
+}
+
+.filters .active{
+  background:#4da3ff;
+  color:white;
+}
+
+/* ================= MODAL ================= */
+.media-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .section h2 {
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+}
+
+`}</style>
     </div>
   )
 }
