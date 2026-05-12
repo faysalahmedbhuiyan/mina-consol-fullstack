@@ -66,7 +66,7 @@ function Header () {
             <Link to='/' className='brand-logo'>
               <img src={logo} alt='Mina Consol Logo' />
             </Link>
-            <span className='brand-text'>Mina Consol Limited</span>
+            <span className='brand-text'>Mina Consol Ltd</span>
             <div className='translate'>
               <div id='google_translate_element'></div>
             </div>
@@ -148,7 +148,7 @@ function Header () {
               </Link>
 
               <Link onClick={closeMenu} to='/about' className='nav-btn'>
-                About
+                About Us
               </Link>
 
               <Link onClick={closeMenu} to='/why-choose-us' className='nav-btn'>

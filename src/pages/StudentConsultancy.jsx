@@ -195,6 +195,7 @@ export default function StudentConsultancy () {
       {/* COURSE */}
       <section className='section center'>
         <h2>Course Categories</h2>
+        <h6>Click On The Course You Want To Know</h6>
 
         <div className='course-grid'>
           {Object.keys(courseDetails).map(key => (
@@ -258,6 +259,7 @@ export default function StudentConsultancy () {
           <div>🇦🇺 Australia</div>
           <div>🇯🇵 Japan</div>
           <div>🇲🇾 Malaysia</div>
+          <div>UK United Kingdom</div>
         </div>
       </section>
 
@@ -388,7 +390,7 @@ export default function StudentConsultancy () {
   /* transition:.3s; */
 
   /* NEW */
-  opacity: 0;
+  opacity: 1;
   transform: translateX(-80px);
   animation: slideLeft 0.8s ease forwards;
 }

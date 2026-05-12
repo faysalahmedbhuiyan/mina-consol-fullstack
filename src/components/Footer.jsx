@@ -27,7 +27,7 @@ function Footer () {
     <footer className='footer'>
       <div className='container footer-grid'>
         <div>
-          <h3>Mina Consol Limited</h3>
+          <h3>Mina Consol Ltd</h3>
           <p>Trusted overseas recruitment & training partner.</p>
         </div>
 

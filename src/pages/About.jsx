@@ -118,28 +118,34 @@ export default function About () {
         </section>
 
         <section className='section'>
-          <div className='team'>
-            <img src={MINA} alt='' className='team-img' />
-            <h3>Fahmina Tasnim Khan Arpita</h3>
-            <h6>Chairman</h6>
-          </div>
-          <br />
-          <div className='team'>
-            <img src={Faysal} alt='' className='team-img' />
-            <h3>Md Faysal Ahmed Bhuiyan</h3>
-            <h6>Director</h6>
-          </div>
-          <br />
-          <div className='team'>
-            <img src={Emon} alt='' className='team-img' />
-            <h3>Rifat Jaman Emon</h3>
-            <h6>Director</h6>
-          </div>
-          <br />
-          <div className='team'>
-            <img src={Fasal} alt='' className='team-img' />
-            <h3>Fasol Bhai</h3>
-            <h6>Director</h6>
+          <div className='container'>
+            <h2>Leadership Team</h2>
+
+            <div className='team-grid'>
+              <div className='team'>
+                <img src={MINA} alt='' className='team-img' />
+                <h3>Fahmina Tasnim Khan Arpita</h3>
+                <h6>Chairman</h6>
+              </div>
+
+              <div className='team'>
+                <img src={Faysal} alt='' className='team-img' />
+                <h3>Md Faysal Ahmed Bhuiyan</h3>
+                <h6>Director</h6>
+              </div>
+
+              <div className='team'>
+                <img src={Emon} alt='' className='team-img' />
+                <h3>Rifat Jaman Emon</h3>
+                <h6>Director</h6>
+              </div>
+
+              <div className='team'>
+                <img src={Fasal} alt='' className='team-img' />
+                <h3>Fasol Bhai</h3>
+                <h6>Director</h6>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -345,7 +351,27 @@ export default function About () {
           color: white;
           font-size: 24px;
         }
-          .team {
+        .team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+} 
+        .team {
   padding: 35px 25px;
   border-radius: 24px;
 

@@ -7,18 +7,52 @@
   margin-left: 5px;
 }
 .navbar {
-  height: 75px;
+  height: 78px;
   display: flex;
   align-items: center;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
+
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9999;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+
+  /* Watercolor gradient */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 183, 197, 0.55),
+    rgba(173, 216, 230, 0.55),
+    rgba(186, 230, 207, 0.55),
+    rgba(255, 228, 181, 0.55)
+  );
+
+  background-size: 300% 300%;
+
+  animation: watercolorFlow 14s ease infinite;
+
+  /* Glass effect */
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Smooth watercolor movement */
+@keyframes watercolorFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes gradientMove {
@@ -71,9 +105,9 @@
 }
 
 .brand-text {
-  color: white;
+  color: #1f2937;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -92,17 +126,38 @@
 
 /* Curved oblong — wider than tall, not a circle */
 .nav-btn {
-  background: white;
-  color: #1a1a1a;
-  padding: 6px 12px;
-  border-radius: 10px; /* rounded rectangle, not pill */
-  font-weight: 500;
+  background: rgba(255, 255, 255, 0.28);
+
+  color: #1f1f1f;
+
+  padding: 8px 16px;
+
+  border-radius: 14px;
+
+  font-weight: 600;
   font-size: 14px;
+
   white-space: nowrap;
-  transition: background 0.25s ease, transform 0.2s ease;
+
   text-decoration: none;
+
   display: inline-block;
-  line-height: 1.4;
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.45);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .nav-btn:hover {
@@ -175,7 +230,9 @@
     width: 100%;
     flex-direction: column;
     flex-wrap: wrap;
-    background: #4a2727;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+
     padding: 12px 0;
     z-index: 1000;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
