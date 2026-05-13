@@ -26,19 +26,28 @@ export default function StudentConsultancy () {
 
   // Scroll animation
   useEffect(() => {
-    const elements = document.querySelectorAll('.fade-left')
+    const elements = document.querySelectorAll('.fade-left, .process-card')
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show')
-        } else {
-          entry.target.classList.remove('show')
-        }
-      })
-    })
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show')
+          } else {
+            entry.target.classList.remove('show')
+          }
+        })
+      },
+      {
+        threshold: 0.2
+      }
+    )
 
     elements.forEach(el => observer.observe(el))
+
+    return () => {
+      elements.forEach(el => observer.unobserve(el))
+    }
   }, [])
 
   const courseDetails = {
@@ -183,7 +192,7 @@ export default function StudentConsultancy () {
               desc: 'Final preparation support including travel planning, accommodation, and settling guidance abroad.'
             }
           ].map((item, i) => (
-            <div className='card' key={i}>
+            <div className='card process-card' key={i}>
               <span>0{i + 1}</span>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
@@ -385,56 +394,50 @@ export default function StudentConsultancy () {
   padding:25px;
   border-radius:12px;
   box-shadow:0 6px 15px rgba(0,0,0,0.1);
-
-  /* OLD */
-  /* transition:.3s; */
-
-  /* NEW */
-  opacity: 1;
-  transform: translateX(-80px);
-  animation: slideLeft 0.8s ease forwards;
+  transition:0.5s;
 }
 
-/* hover same থাকবে */
 .card:hover{
-  transform: translateY(-6px);
+  transform:translateY(-6px);
 }
 
-/* one by one animation delay */
-.process-grid .card:nth-child(1){
-  animation-delay: 0.1s;
+.process-card{
+  opacity:0;
+  transform:translateX(-100px);
 }
 
-.process-grid .card:nth-child(2){
-  animation-delay: 0.5s;
+.process-card.show{
+  opacity:1;
+  transform:translateX(0);
 }
 
-.process-grid .card:nth-child(3){
-  animation-delay: 1s;
+/* stagger animation */
+.process-grid .process-card:nth-child(1){
+  transition-delay: 0.1s;
 }
 
-.process-grid .card:nth-child(4){
-  animation-delay: 3s;
+.process-grid .process-card:nth-child(2){
+  transition-delay: 0.2s;
 }
 
-.process-grid .card:nth-child(5){
-  animation-delay: 4s;
+.process-grid .process-card:nth-child(3){
+  transition-delay: 0.3s;
 }
 
-.process-grid .card:nth-child(6){
-  animation-delay: 5s;
+.process-grid .process-card:nth-child(4){
+  transition-delay: 0.4s;
 }
 
-.process-grid .card:nth-child(7){
-  animation-delay: 6s;
+.process-grid .process-card:nth-child(5){
+  transition-delay: 0.5s;
 }
 
-/* animation */
-@keyframes slideLeft{
-  to{
-    opacity: 1;
-    transform: translateX(0);
-  }
+.process-grid .process-card:nth-child(6){
+  transition-delay: 0.6s;
+}
+
+.process-grid .process-card:nth-child(7){
+  transition-delay: 0.7s;
 }
 
 
