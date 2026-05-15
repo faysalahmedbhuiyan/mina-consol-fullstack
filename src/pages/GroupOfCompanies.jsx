@@ -2,25 +2,76 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function GroupOfCompanies () {
+  const companies = [
+    {
+      title: 'Mina Consol Limited',
+      description:
+        'Empowering dreams through expert global education services. We specialize in university admissions, career counseling, and comprehensive visa processing for students aiming for international success.',
+      route: '/student-consultancy',
+      type: 'education'
+    },
+
+    {
+      title: 'Cosmatica Care',
+      description:
+        'Our upcoming venture into lifestyle and beauty. Dedicated to bringing premium cosmetics and personal care products.',
+      badge: 'Coming Soon',
+      type: 'beauty'
+    },
+
+    {
+      title: 'Faymina Global Trade',
+      description:
+        'Driving excellence in Export & Import with a strong supply chain and international sourcing network.',
+      route: '/export-import',
+      type: 'trade'
+    },
+
+    {
+      title: 'Faymi Tech & Software',
+      description:
+        'Architecting the future with digital transformation, custom software development and AI-driven strategies for the modern era.',
+      badge: 'Strategic Launch in Progress',
+      type: 'tech'
+    }
+  ]
+
   return (
     <>
       <div className='group-page'>
         {/* HERO */}
-        <section className='hero'>
-          <div className='container'>
-            <h1>FAYMINA GROUP</h1>
-            <p>
-              A leading diversified conglomerate committed to excellence,
-              innovation, and sustainable growth across global industries.
+
+        <section className='hero-section'>
+          <div className='hero-bg'></div>
+
+          <div className='container hero-content'>
+            <p className='hero-small'>CORPORATE ECOSYSTEM</p>
+
+            <h1>
+              FAYMINA
+              <span> GROUP</span>
+            </h1>
+
+            <p className='hero-text'>
+              A diversified enterprise ecosystem committed to excellence,
+              innovation and sustainable growth across global industries.
             </p>
+          </div>
+
+          <div className='mouse'>
+            <div className='wheel'></div>
           </div>
         </section>
 
-        {/* HOLDING COMPANY */}
-        <section className='section'>
-          <div className='container'>
+        {/* HOLDING */}
+
+        <section className='holding-section'>
+          <div className='container text-center'>
             <h2>FAYMINA GROUP</h2>
-            <h4>The Holding Entity</h4>
+
+            <h5>The Holding Entity</h5>
+
+            <div className='line'></div>
 
             <p>
               Faymina Group operates as the central strategic pillar, overseeing
@@ -37,227 +88,383 @@ export default function GroupOfCompanies () {
           </div>
         </section>
 
-        {/* DIVISION 1 */}
-        <section className='section line'>
-          <div className='container row'>
-            <div>
-              <h3>Mina Consol Limited</h3>
-              <p>
-                Empowering dreams through expert global education services. We
-                specialize in university admissions, career counseling, and
-                comprehensive visa processing for students aiming for
-                international success.
-              </p>
-              <Link to='/student-consultancy'>Explore Services →</Link>
-            </div>
-          </div>
-        </section>
+        {/* CARDS */}
 
-        {/* DIVISION 2 */}
-        <section className='section line'>
-          <div className='container row'>
-            <div>
-              <h3>Cosmatica Care</h3>
-              <p>
-                Our upcoming venture into the lifestyle and beauty industry.
-                Dedicated to bringing premium quality cosmetics and personal
-                care products to the retail and distribution market.
-              </p>
-              <span className='coming'>Coming Soon</span>
-            </div>
-          </div>
-        </section>
-
-        {/* DIVISION 3 */}
-        <section className='section line'>
-          <div className='container row'>
-            <div>
-              <h3>Faymina Global Trade</h3>
-              <p>
-                Driving excellence in the Export & Import sector. We manage a
-                robust supply chain and international sourcing network,
-                connecting local markets with global opportunities.
-              </p>
-              <Link to='/export-import'>Business Inquiry →</Link>
-            </div>
-          </div>
-        </section>
-
-        {/* DIVISION 4 */}
-        <section className='section line'>
-          <div className='container row'>
-            <div>
-              <h3>Faymi Tech & Software</h3>
-              <p>
-                Architecting the future with cutting-edge IT solutions. Focused
-                on digital transformation, custom software development, and
-                AI-driven strategies for the modern era.
-              </p>
-              <span className='coming'>Strategic Launch in Progress</span>
-            </div>
-          </div>
-        </section>
-
-        {/* VISION BLOCK */}
-        <section className='section dark'>
+        <section className='portfolio-company'>
           <div className='container'>
-            <h2>Our Corporate Vision</h2>
-            <p className='center'>
-              To emerge as a globally respected business icon by fostering
-              innovation, maintaining ethical standards, and delivering
-              unparalleled value to our partners, employees, and stakeholders
-              worldwide.
+            <div className='title-box'>
+              <small>ENTERPRISE PORTFOLIO</small>
+
+              <h2>Subsidiary Company(Sister Concerns)</h2>
+            </div>
+
+            <div className='row g-4'>
+              {companies.map((item, index) => (
+                <div className='col-lg-6' key={index}>
+                  <div className={`company-card ${item.type}`}>
+                    <h3>{item.title}</h3>
+
+                    <p>{item.description}</p>
+
+                    {item.route ? (
+                      item.type === 'trade' ? (
+                        <Link to={item.route} className='trade-btn'>
+                          Business Inquiry
+                        </Link>
+                      ) : (
+                        <Link to={item.route} className='edu-link'>
+                          Explore Services →
+                        </Link>
+                      )
+                    ) : (
+                      <span className={`badge-pill ${item.type}`}>
+                        <span className='dot'></span>
+
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* VISION */}
+
+        <section className='vision'>
+          <div className='watermark'>F</div>
+
+          <div className='container text-center'>
+            <small>CORPORATE VISION</small>
+
+            <p>
+              "To emerge as a globally respected business icon by fostering
+              innovation, maintaining ethical standards and delivering
+              unparalleled value to our partners, employees and stakeholders
+              worldwide."
             </p>
           </div>
         </section>
       </div>
 
       <style>{`
-        * {
-          margin:0;
-          padding:0;
-          box-sizing:border-box;
-          font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
 
-        .hero {
-          padding:80px 15px;
-          background:#ffffff;
-          text-align:center;
-          border-bottom:1px solid #ddd;
-        }
+.group-page{
+background:#0a0a0a;
+color:white;
+overflow:hidden;
+}
 
-        .container {
-          max-width:1100px;
-          margin:auto;
-          padding:0 10px;
-        }
 
-        h1 {
-          font-size:48px;
-          margin-bottom:15px;
-          color: #1a1a1a;
-        }
+/* hero */
 
-        h2 {
-          font-size:32px;
-          margin-bottom:10px;
-          color: #812222;
-        }
+.hero-section{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+text-align:center;
+overflow:hidden;
+padding:20px;
+}
 
-        h3 {
-          font-size:24px;
-          margin-bottom:10px;
-          color: #333;
-        }
+.hero-bg{
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle,#1f2937 0%,#0a0a0a 70%);
+}
 
-        h4 {
-          color:#007bff;
-          text-transform: uppercase;
-          letter-spacing: 1.5px;
-          font-weight: 600;
-          margin-bottom:20px;
-        }
+.hero-content{
+position:relative;
+z-index:5;
+}
 
-        p {
-          line-height:1.8;
-          color:#555;
-          margin-bottom:15px;
-          font-size: 16px;
-        }
+.hero-small{
+letter-spacing:6px;
+color:#777;
+margin-bottom:20px;
+}
 
-        .section {
-          padding:60px 15px;
-          border-bottom:1px solid #eee;
-        }
+.hero-section h1{
+font-size:80px;
+font-weight:900;
+letter-spacing:12px;
+}
 
-        .line {
-          background:#fcfcfc;
-        }
+.hero-section h1 span{
+display:block;
+background:linear-gradient(
+90deg,
+white,
+#999
+);
 
-        .row {
-          display:flex;
-          justify-content:space-between;
-          gap:20px;
-        }
+-webkit-background-clip:text;
+color:transparent;
+}
 
-        a {
-          text-decoration:none;
-          color:#007bff;
-          font-weight:600;
-          transition: 0.3s;
-        }
-        
-        a:hover {
-          color: #0056b3;
-          text-decoration: underline;
-        }
+.hero-text{
+max-width:700px;
+margin:auto;
+color:#999;
+font-size:20px;
+line-height:2;
+margin-top:25px;
+}
 
-        .coming {
-          color:#d9534f;
-          font-size:14px;
-          font-weight: bold;
-          text-transform: uppercase;
-          border: 1px solid #d9534f;
-          padding: 4px 8px;
-          border-radius: 4px;
-          display:inline-block;
-          margin-top:10px;
-        }
+.mouse{
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+width:28px;
+height:48px;
+border:1px solid #555;
+border-radius:30px;
+padding:6px;
+}
 
-        .dark {
-          background:#1a1a1a;
-          color:white;
-        }
+.wheel{
+width:4px;
+height:10px;
+background:white;
+margin:auto;
+border-radius:10px;
+animation:bounce 1s infinite;
+}
 
-        .dark p {
-          color:#ccc;
-        }
+@keyframes bounce{
+0%{transform:translateY(0)}
+50%{transform:translateY(10px)}
+100%{transform:translateY(0)}
+}
 
-        .center {
-          max-width:800px;
-          margin:auto;
-          text-align: center;
-        }
 
-        /* 📱 MOBILE */
-        @media (max-width:768px) {
-          .row {
-            flex-direction:column;
-          }
+/* holding */
 
-          h1 {
-            font-size:28px;
-          }
+.holding-section{
+padding:120px 20px;
+text-align:center;
+}
 
-          h2 {
-            font-size:24px;
-          }
+.holding-section h2{
+font-size:50px;
+letter-spacing:8px;
+margin-bottom:20px;
+}
 
-          h3 {
-            font-size:20px;
-          }
-        }
+.holding-section h5{
+background:linear-gradient(
+90deg,
+#aaa,
+white
+);
 
-        /* 📲 TABLET */
-        @media (min-width:769px) and (max-width:1024px) {
-          h1 {
-            font-size:36px;
-          }
+-webkit-background-clip:text;
+color:transparent;
 
-          .container {
-            max-width:90%;
-          }
-        }
+letter-spacing:5px;
+}
 
-        /* 💻 LARGE SCREEN */
-        @media (min-width:1400px) {
-          .container {
-            max-width:1200px;
-          }
-        }
+.line{
+width:100px;
+height:1px;
+background:#555;
+margin:25px auto;
+}
 
-      `}</style>
+.holding-section p{
+max-width:850px;
+margin:auto auto 30px;
+line-height:2;
+font-size:18px;
+color:#aaa;
+}
+
+
+/* cards */
+
+.portfolio-company{
+padding:100px 20px;
+}
+
+.title-box{
+margin-bottom:50px;
+}
+
+.title-box small{
+letter-spacing:5px;
+color:#777;
+}
+
+.title-box h2{
+font-size:50px;
+margin-top:15px;
+}
+
+.company-card{
+padding:40px;
+border-radius:30px;
+
+background:rgba(255,255,255,.03);
+
+border:1px solid rgba(255,255,255,.1);
+
+backdrop-filter:blur(20px);
+
+transition:.5s;
+height:100%;
+}
+
+.company-card:hover{
+transform:translateY(-10px);
+}
+
+.education:hover{
+box-shadow:0 0 30px rgba(56,189,248,.2);
+}
+
+.beauty:hover{
+box-shadow:0 0 30px rgba(251,113,133,.2);
+}
+
+.trade:hover{
+box-shadow:0 0 30px rgba(251,191,36,.2);
+}
+
+.tech:hover{
+box-shadow:0 0 30px rgba(129,140,248,.2);
+}
+
+.company-card h3{
+margin-bottom:25px;
+}
+
+.company-card p{
+color:#aaa;
+line-height:2;
+}
+
+
+.edu-link{
+color:#38bdf8;
+text-decoration:none;
+font-weight:600;
+}
+
+.trade-btn{
+padding:10px 20px;
+border:1px solid #ffc107;
+border-radius:30px;
+text-decoration:none;
+color:#ffc107;
+display:inline-block;
+}
+
+.trade-btn:hover{
+background:#ffc107;
+color:black;
+}
+
+
+.badge-pill{
+display:inline-flex;
+gap:10px;
+align-items:center;
+
+padding:10px 18px;
+
+border-radius:30px;
+}
+
+.beauty.badge-pill{
+background:rgba(255,0,100,.1);
+color:#ff7ca8;
+}
+
+.tech.badge-pill{
+background:rgba(80,80,255,.1);
+color:#9494ff;
+}
+
+.dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:currentColor;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+opacity:.2;
+}
+}
+
+
+/* vision */
+
+.vision{
+padding:140px 20px;
+position:relative;
+text-align:center;
+}
+
+.watermark{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+
+font-size:300px;
+font-weight:900;
+
+opacity:.03;
+}
+
+.vision small{
+letter-spacing:6px;
+color:#777;
+}
+
+.vision p{
+font-size:28px;
+max-width:900px;
+margin:auto;
+margin-top:30px;
+
+color:#ddd;
+font-style:italic;
+line-height:2;
+}
+
+
+/* mobile */
+
+@media(max-width:768px){
+
+.hero-section h1{
+font-size:45px;
+}
+
+.holding-section h2{
+font-size:30px;
+}
+
+.title-box h2{
+font-size:32px;
+}
+
+.vision p{
+font-size:20px;
+}
+
+}
+
+`}</style>
     </>
   )
 }

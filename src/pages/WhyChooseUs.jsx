@@ -1,261 +1,485 @@
 import { Link } from 'react-router-dom'
 
 export default function WhyChooseUs () {
+  const strengths = [
+    {
+      icon: '⏳',
+      title: 'Legacy & Experience',
+      desc: 'Years of trusted business operations building credibility and long-term success.'
+    },
+    {
+      icon: '🌐',
+      title: 'Diverse Portfolio',
+      desc: 'Operating across multiple sectors providing one-stop business solutions.'
+    },
+    {
+      icon: '💰',
+      title: 'Financial Stability',
+      desc: 'Strong financial structure ensuring secure partnerships and growth.'
+    },
+    {
+      icon: '🚀',
+      title: 'Innovation & Technology',
+      desc: 'Modern systems and continuous innovation across all business units.'
+    },
+    {
+      icon: '👨‍💼',
+      title: 'Skilled Workforce',
+      desc: 'Dedicated professionals delivering high-quality services globally.'
+    },
+    {
+      icon: '🌱',
+      title: 'CSR Commitment',
+      desc: 'Focused on social responsibility and sustainable development initiatives.'
+    },
+    {
+      icon: '⭐',
+      title: 'Quality & Compliance',
+      desc: 'Maintaining international standards and strict quality control systems.'
+    },
+    {
+      icon: '🤝',
+      title: 'Customer-Centric',
+      desc: 'Every solution tailored to client needs with long-term support.'
+    }
+  ]
+
+  const process = [
+    {
+      no: '01',
+      title: 'Consultation',
+      desc: 'Understanding client requirements deeply.'
+    },
+    {
+      no: '02',
+      title: 'Strategy',
+      desc: 'Planning structured and efficient solutions.'
+    },
+    {
+      no: '03',
+      title: 'Execution',
+      desc: 'Delivering services with precision and speed.'
+    },
+    {
+      no: '04',
+      title: 'Support',
+      desc: 'Continuous assistance and improvement.'
+    }
+  ]
+
   return (
-    <div className='why-page'>
-      <section className='hero'>
-        <div className='overlay'>
-          <h1>
-            Why Choose MINA CONSOL LIMITED
-            <br /> FAYMINA GROUP
-          </h1>
-          <p>Strong foundation. Diverse growth. Trusted globally.</p>
-        </div>
-      </section>
+    <>
+      <div className='why-page text-light'>
+        {/* HERO */}
 
-      <section className='section'>
-        <h2>Our Strength</h2>
+        <section className='hero-section d-flex align-items-center justify-content-center text-center'>
+          <div className='hero-overlay'></div>
 
-        <div className='grid'>
-          <div className='card'>
-            <span>⏳</span>
-            <h3>Legacy & Experience</h3>
-            <p>
-              Years of trusted business operations building credibility and
-              long-term success.
-            </p>
+          <div className='container position-relative hero-content'>
+            <h1>
+              Why Choose MINA CONSOL LIMITED
+              <br />
+              FAYMINA GROUP
+            </h1>
+
+            <p>Strong foundation. Diverse growth. Trusted globally.</p>
           </div>
+        </section>
 
-          <div className='card'>
-            <span>🌐</span>
-            <h3>Diverse Portfolio</h3>
-            <p>
-              Operating across multiple sectors providing one-stop business
-              solutions.
-            </p>
+        {/* OUR STRENGTH */}
+
+        <section className='section-space'>
+          <div className='container'>
+            <h2 className='section-title'>OUR STRENGTH</h2>
+
+            <div className='row g-4'>
+              {strengths.map((item, index) => (
+                <div className='col-12 col-md-6 col-lg-3' key={index}>
+                  <div className='glass-card h-100'>
+                    <div className='icon-wrap'>{item.icon}</div>
+
+                    <h4>{item.title}</h4>
+
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className='card'>
-            <span>💰</span>
-            <h3>Financial Stability</h3>
-            <p>
-              Strong financial structure ensuring secure partnerships and
-              growth.
-            </p>
+        {/* HOW WE WORK */}
+
+        <section className='section-space process-section'>
+          <div className='container'>
+            <h2 className='section-title'>HOW WE WORK</h2>
+
+            <div className='row position-relative process-line'>
+              {process.map((step, index) => (
+                <div
+                  key={index}
+                  className='col-12 col-lg-3 text-center mb-5 process-item'
+                >
+                  <div className='circle'>{step.no}</div>
+
+                  <h4>{step.title}</h4>
+
+                  <p>{step.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
+        </section>
 
-          <div className='card'>
-            <span>🚀</span>
-            <h3>Innovation & Technology</h3>
-            <p>
-              Modern systems and continuous innovation across all business
-              units.
-            </p>
+        {/* CTA */}
+
+        <section className='cta-section'>
+          <div className='container text-center'>
+            <h2>Start Your Journey With Us</h2>
+
+            <p>Partner with a reliable and growing business group.</p>
+
+            <Link to='/contact' className='cta-btn'>
+              Contact Us
+            </Link>
           </div>
-
-          <div className='card'>
-            <span>👨‍💼</span>
-            <h3>Skilled Workforce</h3>
-            <p>
-              Dedicated professionals delivering high-quality services globally.
-            </p>
-          </div>
-
-          <div className='card'>
-            <span>🌱</span>
-            <h3>CSR Commitment</h3>
-            <p>
-              Focused on social responsibility and sustainable development
-              initiatives.
-            </p>
-          </div>
-
-          <div className='card'>
-            <span>⭐</span>
-            <h3>Quality & Compliance</h3>
-            <p>
-              Maintaining international standards and strict quality control
-              systems.
-            </p>
-          </div>
-
-          <div className='card'>
-            <span>🤝</span>
-            <h3>Customer-Centric</h3>
-            <p>
-              Every solution tailored to client needs with long-term support.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className='section process-section'>
-        <h2>How We Work</h2>
-
-        <div className='process'>
-          <div className='step'>
-            <div className='circle'>01</div>
-            <h4>Consultation</h4>
-            <p>Understanding client requirements deeply.</p>
-          </div>
-
-          <div className='step'>
-            <div className='circle'>02</div>
-            <h4>Strategy</h4>
-            <p>Planning structured and efficient solutions.</p>
-          </div>
-
-          <div className='step'>
-            <div className='circle'>03</div>
-            <h4>Execution</h4>
-            <p>Delivering services with precision and speed.</p>
-          </div>
-
-          <div className='step'>
-            <div className='circle'>04</div>
-            <h4>Support</h4>
-            <p>Continuous assistance and improvement.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className='cta'>
-        <h2>Start Your Journey With Us</h2>
-        <p>Partner with a reliable and growing business group.</p>
-        <Link to='/contact' className='btn'>
-          Contact Us
-        </Link>
-      </section>
+        </section>
+      </div>
 
       <style>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: 'Segoe UI', sans-serif;
-        }
 
-        .hero {
-          height: 60vh;
-          background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d') center/cover no-repeat;
-          position: relative;
-        }
+      .why-page{
+        background:#0a0a0a;
+        overflow:hidden;
+      }
 
-        .overlay {
-          position: absolute;
-          inset: 0;
-          background: rgba(0,0,0,0.6);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          text-align: center;
-          padding: 20px;
-        }
+      .section-space{
+        padding:110px 15px;
+      }
 
-        .overlay h1 {
-          font-size: 42px;
-        }
+      .section-title{
+        color:white;
+        font-size:42px;
+        font-weight:800;
+        text-align:center;
+        letter-spacing:6px;
+        margin-bottom:70px;
+      }
 
-        .section {
-          padding: 60px 15px;
-          text-align: center;
-          background: #f8f8f8;
-        }
+      p{
+        color:#9ca3af;
+        line-height:1.8;
+      }
 
-        .section h2 {
-          margin-bottom: 30px;
-        }
+      /* HERO */
 
-        .grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-        }
+      .hero-section{
+        min-height:60vh;
+        position:relative;
 
-        .card {
-          background: white;
-          padding: 20px;
-          border-radius: 10px;
-          box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        background:
+        radial-gradient(
+        circle at center,
+        rgba(31,41,55,.8),
+        #0a0a0a 70%
+        );
 
-        .card span {
-          font-size: 28px;
-        }
+      }
 
-        .process-section {
-          background: white;
-        }
+      .hero-overlay{
+        position:absolute;
+        inset:0;
 
-        .process {
-          display: flex;
-          justify-content: center;
-          gap: 30px;
-          flex-wrap: wrap;
-        }
+        background:
+        radial-gradient(
+        rgba(6,182,212,.10),
+        transparent 60%
+        );
+      }
 
-        .step {
-          max-width: 200px;
-        }
+      .hero-content h1{
 
-        .circle {
-          width: 50px;
-          height: 50px;
-          background: black;
-          color: white;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: auto;
-          margin-bottom: 10px;
-        }
+        font-size:65px;
+        font-weight:900;
+        letter-spacing:3px;
+        line-height:1.2;
 
-        .cta {
-          padding: 60px 15px;
-          text-align: center;
-          background: #111;
-          color: white;
-        }
+      }
 
-        .btn {
-          display: inline-block;
-          margin-top: 20px;
-          padding: 12px 25px;
-          background: white;
-          color: black;
-          text-decoration: none;
-          border-radius: 5px;
-        }
+      .hero-content p{
 
-        /* 📱 MOBILE */
-        @media (max-width:600px) {
-          .grid {
-            grid-template-columns: 1fr;
-          }
+        font-size:22px;
 
-          .overlay h1 {
-            font-size: 26px;
-          }
-        }
+        margin-top:20px;
 
-        /* 📲 TABLET */
-        @media (min-width:601px) and (max-width:1024px) {
-          .grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
+        background:
+        linear-gradient(
+        to right,
+        #bdbdbd,
+        white
+        );
 
-        /* 💻 LARGE */
-        @media (min-width:1400px) {
-          .grid {
-            grid-template-columns: repeat(4, 1fr);
-          }
-        }
+        -webkit-background-clip:text;
+        color:transparent;
+      }
+
+
+      /* GLASS CARD */
+
+      .glass-card{
+
+        background:
+        rgba(255,255,255,.03);
+
+        backdrop-filter:blur(14px);
+
+        border:1px solid rgba(255,255,255,.06);
+
+        border-radius:24px;
+
+        padding:35px;
+
+        transition:
+        all .5s ease;
+
+      }
+
+      .glass-card:hover{
+
+        transform:
+        scale(1.03);
+
+        border-color:
+        rgba(255,255,255,.2);
+
+        box-shadow:
+        0 0 35px rgba(6,182,212,.15);
+
+      }
+
+      .icon-wrap{
+
+        width:70px;
+        height:70px;
+
+        border-radius:50%;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        background:#151515;
+
+        border:
+        1px solid rgba(255,255,255,.1);
+
+        font-size:28px;
+
+        margin:auto;
+        margin-bottom:25px;
+
+      }
+
+      .glass-card h4{
+
+        color:white;
+        font-size:22px;
+
+        margin-bottom:15px;
+      }
+
+      /* PROCESS */
+
+      .process-line{
+
+        position:relative;
+
+      }
+
+      @media(min-width:992px){
+
+      .process-line::before{
+
+      content:'';
+
+      position:absolute;
+
+      width:80%;
+
+      top:32px;
+
+      left:10%;
+
+      border-top:
+      2px dashed
+      rgba(255,255,255,.1);
+
+      }
+
+      }
+
+      .process-item{
+
+      position:relative;
+      z-index:5;
+
+      }
+
+      .circle{
+
+      width:70px;
+      height:70px;
+
+      margin:auto;
+
+      border-radius:50%;
+
+      background:#151515;
+
+      border:
+      1px solid rgba(255,255,255,.1);
+
+      color:#bbb;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      font-size:20px;
+
+      font-weight:700;
+
+      margin-bottom:25px;
+
+      transition:
+      all .4s ease;
+
+      }
+
+      .process-item:hover .circle{
+
+      background:
+      linear-gradient(
+      45deg,
+      #06b6d4,
+      #2563eb
+      );
+
+      color:white;
+
+      border:none;
+
+      box-shadow:
+      0 0 20px
+      rgba(6,182,212,.5);
+
+      }
+
+      .process-item h4{
+
+      color:white;
+      margin-bottom:15px;
+
+      }
+
+
+      /* CTA */
+
+      .cta-section{
+
+      padding:110px 15px;
+
+      background:
+      rgba(255,255,255,.02);
+
+      border-top:
+      1px solid rgba(255,255,255,.05);
+
+      border-bottom:
+      1px solid rgba(255,255,255,.05);
+
+      }
+
+      .cta-section h2{
+
+      font-size:48px;
+
+      font-weight:800;
+
+      color:white;
+
+      margin-bottom:20px;
+
+      }
+
+      .cta-section p{
+
+      max-width:600px;
+
+      margin:auto;
+
+      margin-bottom:40px;
+
+      }
+
+      .cta-btn{
+
+      display:inline-block;
+
+      background:white;
+
+      color:black;
+
+      padding:
+      15px 40px;
+
+      border-radius:100px;
+
+      text-decoration:none;
+
+      font-size:13px;
+
+      font-weight:700;
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      transition:
+      .4s ease;
+
+      }
+
+      .cta-btn:hover{
+
+      transform:
+      scale(1.06);
+
+      background:#e5e5e5;
+
+      color:black;
+
+      }
+
+
+      @media(max-width:768px){
+
+      .hero-content h1{
+      font-size:34px;
+      }
+
+      .section-title{
+      font-size:28px;
+      letter-spacing:3px;
+      }
+
+      .cta-section h2{
+      font-size:30px;
+      }
+
+      }
 
       `}</style>
-    </div>
+    </>
   )
 }

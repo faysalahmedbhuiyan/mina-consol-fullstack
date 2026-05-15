@@ -8,7 +8,7 @@ export default function Home () {
     {
       name: 'Md Faysal Ahmed BHuiyan',
       text: 'Thanks to Mina, I successfully got my student visa and admission abroad.She care about me all the time.',
-      type: 'Student Consultancy'
+      type: 'MINA CONSOL LTD'
     },
     {
       name: 'Md Faysal AHmed',
@@ -18,17 +18,17 @@ export default function Home () {
     {
       name: 'IT Client',
       text: 'Very professional IT service. Delivered project on time.',
-      type: 'IT Farm'
+      type: 'IT Farm LTD'
     },
     {
       name: 'Export Client',
       text: 'High quality product and smooth export process.',
-      type: 'Export Import'
+      type: 'Export Import LTD'
     },
     {
       name: 'Raju Indian',
       text: 'Paisa hi Paisa Paisa hi Paisa.',
-      type: 'Export Import'
+      type: 'Export Import LTD'
     }
   ]
 
@@ -101,11 +101,11 @@ export default function Home () {
         </h2>
         <h3>LIMITED COMPANY</h3>
         <p>
-          The FAYMINA Group, a private limited company with three
-          businesses—MINA CONSOL LIMITED, OUR'S Import-Export, and FAYMINA'S IT
-          FARM—is based in Bangladesh and operates in a number of industries,
-          including education consulting, IT services, agricultural, and
-          healthcare.
+          The FAYMINA GROUP, a private limited company with three
+          businesses—MINA CONSOL LTD, OUR'S Import-Export LTD, and FAYMINA IT
+          FARM LTD —is based in Bangladesh and operates in a number of
+          industries, including education consulting, IT services, agricultural,
+          and healthcare.
         </p>
       </section>
 
@@ -121,19 +121,19 @@ export default function Home () {
           </div>
           <div className='logo-Card'>
             <img src='ITFarm-logo' alt='' />
-            <p>IT Farm</p>
+            <p>FAYMINA IT Farm LTD</p>
           </div>
           <div className='logo-Card'>
             <img src='StudentConsultancy-logo' alt='' />
-            <p>Student Consultancy</p>
+            <p>MINA CONSOL LTD</p>
           </div>
           <div className='logo-Card'>
             <img src='HealthCare-logo' alt='' />
-            <p>Health Care</p>
+            <p>MINA Health Care </p>
           </div>
           <div className='logo-Card'>
             <img src='Export_import_logo' alt='' />
-            <p>OUR'S Export-Import</p>
+            <p>OUR'S Export-Import LTD</p>
           </div>
         </div>
       </section>
@@ -249,54 +249,18 @@ export default function Home () {
           margin-top: 30px;
         }
 
-        /* ================= BRAND CARD ANIMATION ================= */
+        .logo-Card{
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.logo-Card{
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-  /* NEW */
-  opacity: 0;
-  transform: translateX(-80px);
-  animation: brandSlideLeft 0.8s ease forwards;
-}
-
-/* one by one animation */
-.logo-Card:nth-child(1){
-  animation-delay: 0.2s;
-}
-
-.logo-Card:nth-child(2){
-  animation-delay: 0.4s;
-}
-
-.logo-Card:nth-child(3){
-  animation-delay: 0.6s;
-}
-
-.logo-Card:nth-child(4){
-  animation-delay: 0.8s;
-}
-
-.logo-Card:nth-child(5){
-  animation-delay: 1s;
-}
-
-.logo-Card img{
-  width:100%;
-  max-width:120px;
-  height:auto;
-}
-
-/* animation */
-@keyframes brandSlideLeft{
-  to{
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+        .logo-Card img{
+          width:100%;
+          max-width:120px;
+          height:auto;
+        }
 
         /* 📱 MOBILE */
         @media (max-width: 768px) {
