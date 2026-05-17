@@ -156,7 +156,7 @@ export default function Contact () {
               />
             </div>
           </div>
-
+          <br />
           <div className='col-lg-7'>
             <form ref={form} onSubmit={handleSubmit} className='glass-form'>
               <input name='name' placeholder='YOUR NAME' required />
@@ -319,16 +319,19 @@ max-width:170px;
 
 .big-mail{
 display:block;
-
-font-size:42px;
-
+font-size:36px;
 color:white;
-
 margin:30px 0;
-
 text-decoration:none;
 
-word-break:break-word;
+line-height:1.4;
+
+/* fix */
+word-break:normal;
+overflow-wrap:anywhere;
+white-space:normal;
+
+max-width:100%;
 }
 
 .map-wrap{
